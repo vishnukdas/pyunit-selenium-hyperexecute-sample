@@ -25,9 +25,9 @@ class HyperTestPyUnitDocTest(unittest.TestCase):
             "platform": os.environ.get("TARGET_OS"),
             "browserName": 'edge',
             "version": 'canary',
-            "smartUI.project": "HYP<>VR_Sample", # Replace the name of project with the new project name
+             "smartUI.project": "HYP<>VR_Sample", # Replace the name of project with the new project name
             #  "smartUI.build": "Py_HYE", # Replace the name of Build with the new Build name
-             "smartUI.baseline": True, # Enable if you want to update to a new baseline build
+            #  "smartUI.baseline": false, # Enable if you want to update to a new baseline build
         }
         self.driver = webdriver.Remote(
            command_executor="https://{}:{}@hub.lambdatest.com/wd/hub".format(username, access_key),
@@ -52,9 +52,6 @@ class HyperTestPyUnitDocTest(unittest.TestCase):
         name.send_keys("Testing")
         time.sleep(2)
 
-        #Taking screenshot
-        driver.execute_script("smartui.takeScreenshot")
-
         email_address = driver.find_element(By.XPATH, "//input[@id='inputEmail4']")
         email_address.send_keys("testing@testing.com")
         time.sleep(2)
@@ -66,7 +63,10 @@ class HyperTestPyUnitDocTest(unittest.TestCase):
         company = driver.find_element(By.CSS_SELECTOR, "#company")
         company.send_keys("LambdaTest")
         time.sleep(2)
-
+        
+        #taking screenshot
+        driver.execute_script("smartui.takeScreenshot")
+        
         website = driver.find_element(By.CSS_SELECTOR, "#websitename")
         website.send_keys("https://wwww.lambdatest.com")
         time.sleep(2)

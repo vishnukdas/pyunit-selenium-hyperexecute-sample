@@ -5,7 +5,7 @@ testSuiteTimeout: 90
 testSuiteStep: 90
 
 matrix:
-  files: ["tests/lt_sample_todo.py", "tests/lt_selenium_playground.py"]
+  files: ["tests/lt_selenium_play.py", "tests/lt_selenium_playground.py"]
 
 runson: mac
 retryOnFailure: true
