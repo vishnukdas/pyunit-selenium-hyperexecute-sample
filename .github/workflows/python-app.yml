@@ -23,12 +23,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
 
     - name: Run HyperExecute Job
       run: |
+        git clone https://github.com/vishnukdas/pyunit-selenium-hyperexecute-sample.git
+        cd pyunit-selenium-hyperexecute-sample.git
         curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute 
         chmod u+x hyperexecute
         ./hyperexecute --user '${{ github.event.inputs.username }}' --key '${{ github.event.inputs.accesskey }}' --config yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
