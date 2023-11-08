@@ -22,7 +22,7 @@ jobs:
 
     - name: Run HyperExecute Job
       run: |
-        curl -o https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute 
+        curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute 
         chmod u+x hyperexecute
         ./hyperexecute --user $LT_USERNAME --key $LT_ACCESS_KEY --config yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
 
