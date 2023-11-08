@@ -13,6 +13,6 @@ steps:
 
 - script: |
       curl -O https://downloads.lambdatest.com/hyperexecute/windows/hyperexecute.exe            
-      hyperexecute.exe -u $(LT_USERNAME) -k $(LT_ACCESS_KEY) -i yaml/win/.hyperexecute_autosplits.yaml
+      hyperexecute.exe -u $(LT_USERNAME) -k $(LT_ACCESS_KEY) -i yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
       
   displayName: 'Run a hyperexecute job'
