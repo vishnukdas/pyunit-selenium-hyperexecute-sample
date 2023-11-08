@@ -24,7 +24,7 @@ jobs:
     - name: Run HyperExecute Job
       run: |
         git clone https://github.com/vishnukdas/pyunit-selenium-hyperexecute-sample
-        cd pyunit-selenium-hyperexecute-sample.git
+        cd pyunit-selenium-hyperexecute-sample
         curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute 
         chmod u+x hyperexecute
         ./hyperexecute --user '${{ github.event.inputs.username }}' --key '${{ github.event.inputs.accesskey }}' --config yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
