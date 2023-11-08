@@ -8,9 +8,16 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
-permissions:
-  contents: read
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'LT_USERNAME'
+        required: true
+        default: ''
+      accesskey:
+        description: 'LT_ACCESS_KEY'
+        required: true
+        default: ''
 
 jobs:
   build:
@@ -24,5 +31,5 @@ jobs:
       run: |
         curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute 
         chmod u+x hyperexecute
-        ./hyperexecute --user $LT_USERNAME --key $LT_ACCESS_KEY --config yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
+        ./hyperexecute --user '${{ github.event.inputs.username }}' --key '${{ github.event.inputs.accesskey }}' --config yaml/win/pyunit_hyperexecute_autosplit_sample.yaml
 
